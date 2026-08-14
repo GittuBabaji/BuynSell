@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/util/theme/app_theme.dart';
-import 'package:buynsell/screens/auth/login_screen.dart';
+// import 'package:buynsell/screens/auth/login_screen.dart';
 import 'package:buynsell/routes/app_routes.dart';
 import 'package:buynsell/screens/home/home_screen.dart';
 

@@ -76,6 +76,29 @@ class AppTheme {
         color: AppColors.divider,
         thickness: 1,
       ),
+      chipTheme: ChipThemeData(
+        backgroundColor: AppColors.background,
+        disabledColor: AppColors.background.withValues(alpha: 0.5),
+        selectedColor: AppColors.primary.withValues(alpha: 0.12),
+        secondarySelectedColor: AppColors.secondary.withValues(alpha: 0.12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: const BorderSide(color: AppColors.border),
+        ),
+        labelStyle: const TextStyle(
+          fontFamily: 'Rubik',
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: AppColors.textPrimary,
+        ),
+        secondaryLabelStyle: const TextStyle(
+          fontFamily: 'Rubik',
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: AppColors.primary,
+        ),
+      ),
     );
   }
 
@@ -146,6 +169,29 @@ class AppTheme {
       dividerTheme: const DividerThemeData(
         color: Colors.white12,
         thickness: 1,
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: AppColors.darkSurface,
+        disabledColor: AppColors.darkSurface.withValues(alpha: 0.5),
+        selectedColor: AppColors.primaryLight.withValues(alpha: 0.15),
+        secondarySelectedColor: AppColors.accent.withValues(alpha: 0.15),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: const BorderSide(color: Colors.white12),
+        ),
+        labelStyle: const TextStyle(
+          fontFamily: 'Rubik',
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+        secondaryLabelStyle: const TextStyle(
+          fontFamily: 'Rubik',
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: AppColors.primaryLight,
+        ),
       ),
     );
   }
