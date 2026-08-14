@@ -9,8 +9,9 @@ class AppTheme {
 
   /// Material 3 Light Theme
   static ThemeData get lightTheme {
-    return ThemeData(
+    return ThemeData( 
       useMaterial3: true,
+      fontFamily: 'Rubik',
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         primary: AppColors.primary,
@@ -50,6 +51,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: AppColors.border),
         ),
+        
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: AppColors.border),
@@ -81,6 +83,7 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'Rubik',
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         primary: AppColors.primaryLight,

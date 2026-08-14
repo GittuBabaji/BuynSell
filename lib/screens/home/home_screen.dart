@@ -178,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                       trailing: Text(
                         item['price']!,
                         style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).primaryColorLight,
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                         ),

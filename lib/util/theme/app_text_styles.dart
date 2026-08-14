@@ -6,8 +6,11 @@ class AppTextStyles {
   // Private constructor to prevent instantiation
   AppTextStyles._();
 
+  static const String fontFamily = 'Rubik';
+
   // Headings
   static const TextStyle heading1 = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 28,
     fontWeight: FontWeight.bold,
     color: AppColors.textPrimary,
@@ -15,6 +18,7 @@ class AppTextStyles {
   );
 
   static const TextStyle heading2 = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 22,
     fontWeight: FontWeight.bold,
     color: AppColors.textPrimary,
@@ -22,6 +26,7 @@ class AppTextStyles {
   );
 
   static const TextStyle heading3 = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 18,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
@@ -30,6 +35,7 @@ class AppTextStyles {
 
   // Body Styles
   static const TextStyle bodyLarge = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.normal,
     color: AppColors.textPrimary,
@@ -37,6 +43,7 @@ class AppTextStyles {
   );
 
   static const TextStyle bodyMedium = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 14,
     fontWeight: FontWeight.normal,
     color: AppColors.textPrimary,
@@ -44,6 +51,7 @@ class AppTextStyles {
   );
 
   static const TextStyle bodySmall = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 12,
     fontWeight: FontWeight.normal,
     color: AppColors.textSecondary,
@@ -52,6 +60,7 @@ class AppTextStyles {
 
   // Component Specific Text Styles
   static const TextStyle caption = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 11,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
@@ -59,6 +68,7 @@ class AppTextStyles {
   );
 
   static const TextStyle button = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: Colors.white,
@@ -66,6 +76,7 @@ class AppTextStyles {
   );
 
   static const TextStyle price = TextStyle(
+    fontFamily: fontFamily,
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: AppColors.primary,
