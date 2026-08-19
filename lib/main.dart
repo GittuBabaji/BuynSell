@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/app.dart';
-void main() {
+import 'package:buynsell/util/storage/storage_client.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // TODO: Initialize services (Firebase, notifications, etc.)
+
+  // Initialize services
+  await TLocalStorage.init();
+  // TODO: Initialize Firebase, notifications, etc.
+
   runApp(const BuyNSellApp());
 }
