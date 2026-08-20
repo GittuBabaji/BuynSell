@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/util/theme/app_colors.dart';
+import 'package:buynsell/util/constants/asset_constants.dart';
+import 'package:buynsell/util/constants/text_strings_constants.dart';
 
 /// Custom Dart-based splash screen with animations.
 ///
@@ -15,7 +17,7 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({
     super.key,
     required this.nextScreen,
-    this.duration = const Duration(seconds: 2),
+    this.duration = const Duration(seconds: 1),
   });
 
   @override
@@ -101,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen>
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final bgColor = isDark ? AppColors.darkBackground : Colors.white;
     final logoAsset =
-        isDark ? 'assets/icons/light_logo.png' : 'assets/icons/dark_logo.png';
+        isDark ? TIcons.lightLogo : TIcons.darkLogo;
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -139,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen>
                 child: Column(
                   children: [
                     Text(
-                      'Buy N Sell',
+                      Textconstants.appNameShort,
                       style: TextStyle(
                         fontFamily: 'Rubik',
                         fontSize: 28,
@@ -150,7 +152,7 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'IIT BHU Marketplace',
+                      Textconstants.splashSubtitle,
                       style: TextStyle(
                         fontFamily: 'Rubik',
                         fontSize: 14,

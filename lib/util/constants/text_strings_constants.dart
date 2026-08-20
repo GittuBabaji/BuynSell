@@ -1,6 +1,8 @@
 class Textconstants{
   Textconstants._();
   static const String appName = "Buy N Sell IIT BHU";
+  static const String appNameShort = "Buy N Sell";
+  static const String splashSubtitle = "IIT BHU Marketplace";
   static const String loginTitle = "Login - Buy N Sell IIT BHU";
   static const String welcomeMessage = "Welcome to Buy N Sell IIT BHU";
   static const String onboardingtitle2 = "Buy and Sell with Ease";

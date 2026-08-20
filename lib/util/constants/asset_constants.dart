@@ -1,26 +1,32 @@
-/// Centralized asset path constants for images, icons, and illustrations.
-class AssetConstants {
+/// Centralized asset path constants for all images.
+class TImages {
   // Private constructor to prevent instantiation
-  AssetConstants._();
+  TImages._();
 
-  // Base Prefixes
-  static const String imagesPath = 'assets/images/';
-  static const String iconsPath = 'assets/icons/';
+  // Base Prefix
+  static const String _basePath = 'assets/images/';
 
-  // Images
-  static const String logo = '${imagesPath}logo.png';
-  static const String placeholder = '${imagesPath}placeholder.png';
-  static const String noData = '${imagesPath}no_data.png';
-  static const String emptyCart = '${imagesPath}empty_cart.png';
+  // -- Onboarding
+  static const String onboarding1 = '${_basePath}onboarding/page1.gif';
+  static const String onboarding2 = '${_basePath}onboarding/page2.gif';
+  static const String onboarding3 = '${_basePath}onboarding/page3.gif';
 
-  // Onboarding Images
-  static const String onboarding1 = '${imagesPath}onboarding1.png';
-  static const String onboarding2 = '${imagesPath}onboarding2.png';
-  static const String onboarding3 = '${imagesPath}onboarding3.png';
+  // -- Placeholders & Empty States
+  // TODO: Add placeholder, no_data, empty_cart images when available
+}
 
-  // Icons
-  static const String googleIcon = '${iconsPath}google.svg';
-  static const String iitbhuLogo = '${iconsPath}iitbhu_logo.png';
+/// Centralized asset path constants for all icons.
+class TIcons {
+  // Private constructor to prevent instantiation
+  TIcons._();
 
-  // TODO: Add additional asset paths as UI components are developed
+  // Base Prefix
+  static const String _basePath = 'assets/icons/';
+
+  // -- App Logos
+  static const String mainLogo = '${_basePath}main_logo.png';
+  static const String darkLogo = '${_basePath}dark_logo.png';
+  static const String lightLogo = '${_basePath}light_logo.png';
+
+  // TODO: Add additional icon paths as assets are added (e.g. google.svg, iitbhu_logo.png)
 }
