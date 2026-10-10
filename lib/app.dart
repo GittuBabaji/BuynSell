@@ -3,8 +3,10 @@ import 'package:buynsell/util/theme/app_theme.dart';
 // import 'package:buynsell/screens/auth/login_screen.dart';
 import 'package:buynsell/routes/app_routes.dart';
 import 'package:buynsell/screens/splash/splash_screen.dart';
-import 'package:buynsell/screens/home/home_screen.dart';
+import 'package:buynsell/screens/onboarding/onboarding.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
+import 'package:get/get.dart';
+
 
 /// Root widget for the Buy N Sell IIT BHU application.
 class BuyNSellApp extends StatelessWidget {
@@ -12,13 +14,13 @@ class BuyNSellApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: Textconstants.appName,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: const SplashScreen(nextScreen: HomeScreen()),
+      home: const SplashScreen(nextScreen: OnboardingScreen()),
       onGenerateRoute: AppRoutes.generateRoute,
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

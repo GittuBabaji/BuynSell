@@ -10,6 +10,7 @@ class TImages {
   static const String onboarding1 = '${_basePath}onboarding/page1.gif';
   static const String onboarding2 = '${_basePath}onboarding/page2.gif';
   static const String onboarding3 = '${_basePath}onboarding/page3.gif';
+  static const String emailVerification = '${_basePath}email_verification/page1.gif';
 
   // -- Placeholders & Empty States
   // TODO: Add placeholder, no_data, empty_cart images when available
@@ -28,5 +29,8 @@ class TIcons {
   static const String darkLogo = '${_basePath}dark_logo.png';
   static const String lightLogo = '${_basePath}light_logo.png';
 
-  // TODO: Add additional icon paths as assets are added (e.g. google.svg, iitbhu_logo.png)
+  // -- Social / Third-party
+  static const String googleIcon = '${_basePath}google_icon.png';
+
+  // TODO: Add additional icon paths as assets are added (e.g. iitbhu_logo.png)
 }

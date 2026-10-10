@@ -10,7 +10,12 @@ class AppColors {
   static const Color primary = Color(0xFF0F4C81);
   static const Color primaryDark = Color(0xFF0A3357);
   static const Color primaryLight = Color(0xFF3B7BBF);
-
+  static const primarywidgetlight=Color(0xFF3B7BBF);
+  static const primarywidgetdark=Color(0xFF0A3357);
+  static const primarywhite=Color(0xFFE0E0E0);
+  static const secondarywhite=Color(0xFFFFFFFF);
+  static const primaryblack=Color(0xFF000000);
+  static const secondaryblack=Color(0xFF1E1E1E);
   // Secondary & Accent Colors (Teal Palette)
   static const Color secondary = Color(0xFF008080);
   static const Color accent = Color(0xFF00A896);

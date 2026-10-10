@@ -17,6 +17,7 @@ dependencies:
   flutter_native_splash: ^2.3.0  
   cupertino_icons: ^1.0.8
   font_awesome_flutter: ^10.7.0
+  iconsax: ^0.0.8
   # State
   flutter_riverpod: ^2.6.1
   get: ^4.6.6
@@ -54,6 +55,7 @@ flutter:
     - assets/icons/
     - assets/fonts/
     - assets/images/onboarding/
+    - assets/images/email_verification/
   fonts:
     - family: Rubik
       fonts:

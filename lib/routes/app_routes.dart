@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/screens/auth/login_screen.dart';
+import 'package:buynsell/screens/auth/register_screen.dart';
+import 'package:buynsell/screens/auth/privacy_policy_screen.dart';
+import 'package:buynsell/screens/auth/terms_conditions_screen.dart';
 
 /// Routes manager and route definitions for Buy N Sell app.
 class AppRoutes {
@@ -31,6 +34,8 @@ class AppRoutes {
   static const String agreement = '/agreement';
   static const String profile = '/profile';
   static const String appSettings = '/settings';
+  static const String privacyPolicy = '/privacyPolicy';
+  static const String termsConditions = '/termsConditions';
 
   /// Dynamically generates MaterialPageRoute for specified route [settings].
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -43,7 +48,7 @@ class AppRoutes {
 
       case register:
         return MaterialPageRoute(
-          builder: (_) => _buildPlaceholderScreen('Register'),
+          builder: (_) => const RegisterScreen(),
           settings: settings,
         );
 
@@ -182,6 +187,18 @@ class AppRoutes {
       case appSettings:
         return MaterialPageRoute(
           builder: (_) => _buildPlaceholderScreen('Settings'),
+          settings: settings,
+        );
+
+      case privacyPolicy:
+        return MaterialPageRoute(
+          builder: (_) => const PrivacyPolicyScreen(),
+          settings: settings,
+        );
+
+      case termsConditions:
+        return MaterialPageRoute(
+          builder: (_) => const TermsAndConditionsScreen(),
           settings: settings,
         );
 
