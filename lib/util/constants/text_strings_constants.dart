@@ -57,6 +57,14 @@ class Textconstants{
   static const String privacyPolicy = "Privacy Policy";
   static const String acceptTerms = "Please accept the Terms & Conditions and Privacy Policy";
 
+  // -- Auth: Email Verification & Success
+  static const String confirmEmail = "Verify your email address";
+  static const String confirmEmailSubTitle = "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
+  static const String tContinue = "Continue";
+  static const String resendEmail = "Resend Email";
+  static const String yourAccountCreatedTitle = "Your account successfully created!";
+  static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
+
   // -- Search
   static const String searchHint = "Search products in IIT BHU...";
 
