@@ -3,6 +3,8 @@ import 'package:buynsell/screens/auth/login_screen.dart';
 import 'package:buynsell/screens/auth/register_screen.dart';
 import 'package:buynsell/screens/auth/privacy_policy_screen.dart';
 import 'package:buynsell/screens/auth/terms_conditions_screen.dart';
+import 'package:buynsell/screens/auth/forgot_password_screen.dart';
+import 'package:buynsell/screens/auth/reset_password_screen.dart';
 
 /// Routes manager and route definitions for Buy N Sell app.
 class AppRoutes {
@@ -36,6 +38,8 @@ class AppRoutes {
   static const String appSettings = '/settings';
   static const String privacyPolicy = '/privacyPolicy';
   static const String termsConditions = '/termsConditions';
+  static const String forgotPassword = '/forgotPassword';
+  static const String resetPassword = '/resetPassword';
 
   /// Dynamically generates MaterialPageRoute for specified route [settings].
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -199,6 +203,19 @@ class AppRoutes {
       case termsConditions:
         return MaterialPageRoute(
           builder: (_) => const TermsAndConditionsScreen(),
+          settings: settings,
+        );
+
+      case forgotPassword:
+        return MaterialPageRoute(
+          builder: (_) => const ForgotPasswordScreen(),
+          settings: settings,
+        );
+
+      case resetPassword:
+        final email = settings.arguments is String ? settings.arguments as String : '';
+        return MaterialPageRoute(
+          builder: (_) => ResetPasswordScreen(email: email),
           settings: settings,
         );
 

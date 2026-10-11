@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:buynsell/screens/auth/forgot_password_screen.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
 import 'package:buynsell/util/constants/sizes.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 /// The login form containing email, password, remember me, forgot password, and action buttons.
@@ -119,7 +121,7 @@ class _LoginFormState extends State<LoginForm> {
               // Forgot Password
               TextButton(
                 onPressed: () {
-                  // TODO: Navigate to Forgot Password screen
+                  Get.to(() => const ForgotPasswordScreen());
                 },
                 child: const Text(Textconstants.forgotPassword),
               ),

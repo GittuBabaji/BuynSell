@@ -61,6 +61,7 @@ class VerifyEmail extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
+                    // for now
                     Get.to(() => const SuccessScreen());
                   },
                   child: const Text(Textconstants.tContinue),
@@ -70,7 +71,8 @@ class VerifyEmail extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {}  ,
+                  // TODO
                   child: const Text(Textconstants.resendEmail),
                 ),
               ),

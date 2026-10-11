@@ -65,6 +65,16 @@ class Textconstants{
   static const String yourAccountCreatedTitle = "Your account successfully created!";
   static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
 
+  // -- Auth: Forgot & Reset Password
+  static const String forgetPasswordTitle = "Forgot Password";
+  static const String forgetPasswordSubTitle = "Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
+  static const String resetPasswordTitle = "Reset Password";
+  static const String changeYourPasswordTitle = "Password Reset Email Sent";
+  static const String changeYourPasswordSubTitle = "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
+  static const String done = "Done";
+  static const String submit = "Submit";
+  static const String passwordResetEmailSent = "Password reset email sent successfully!";
+
   // -- Search
   static const String searchHint = "Search products in IIT BHU...";
 
