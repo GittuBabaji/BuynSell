@@ -85,9 +85,25 @@ class Textconstants{
   static const String paymentmethod1 = "Cash on Delivery";
   static const String meetingpoint = "Select Meeting Point";
 
-  // -- Home
+  // -- Home & Dashboard
   static const String homebartitle = "Buy N Sell IIT BHU";
   static const String homebarsubtitle = "Discover, Buy, and Sell within the IIT BHU Community";
+  static const String campusLocation = "IIT BHU, Varanasi";
+  static const String featuredCategories = "Featured Categories";
+  static const String recentListings = "Recent Listings";
+  static const String viewAll = "View All";
+
+  // -- Notifications
+  static const String notifications = "Notifications";
+  static const String notificationsEmpty = "No new notifications";
+  static const String markAllAsRead = "Mark all as read";
+
+  // -- Product Details
+  static const String productDetails = "Product Details";
+  static const String description = "Description";
+  static const String sellerInfo = "Seller Information";
+  static const String chatWithSeller = "Chat with Seller";
+  static const String buyNow = "Buy Now";
 
   // -- Profile & Settings
   static const String profiletitle = "Profile";

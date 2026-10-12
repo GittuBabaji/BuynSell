@@ -6,6 +6,7 @@ import 'package:buynsell/screens/buyer/wishlist_screen.dart';
 import 'package:buynsell/screens/seller/upload_product_screen.dart';
 import 'package:buynsell/screens/chat/conversations_screen.dart';
 import 'package:buynsell/screens/profile/profile_screen.dart';
+import 'package:buynsell/util/constants/sizes.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
 import 'package:buynsell/util/device/device_utils.dart';
 import 'package:buynsell/util/theme/app_colors.dart';
@@ -20,14 +21,14 @@ class NavigationMenu extends StatelessWidget {
     final controller = Get.put(NavigationController());
     final isDark = DeviceUtils().isDarkMode(context);
 
-    final selectedItemColor = isDark ? Colors.white : AppColors.primary;
-    final unselectedItemColor = isDark ? Colors.grey[400] : Colors.grey[600];
+    final selectedItemColor = isDark ? AppColors.white : AppColors.primary;
+    final unselectedItemColor = isDark ? AppColors.unselectedDark : AppColors.unselectedLight;
 
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
-          height: 75,
-          elevation: isDark ? 0 : 2,
+          height: TSizes.navigationBarHeight,
+          elevation: isDark ? 0 : TSizes.cardElevation,
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) => controller.selectedIndex.value = index,
           backgroundColor: isDark ? AppColors.darkSurface : AppColors.surface,

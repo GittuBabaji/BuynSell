@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/util/constants/sizes.dart';
+import 'package:buynsell/util/constants/text_strings_constants.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
@@ -8,7 +9,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Privacy Policy'),
+        title: const Text(Textconstants.privacyPolicy),
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -172,7 +173,7 @@ Continued use of BuyNSell after changes take effect may constitute acceptance of
 If you have questions about this Privacy Policy or your data, contact:
 BuyNSell Support
 Email: support@buynsell.app''',
-          style: TextStyle(fontSize: 14.0, height: 1.5),
+          style: TextStyle(fontSize: TSizes.fontSizeMd, height: 1.5),
         ),
       ),
     );

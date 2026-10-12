@@ -6,6 +6,10 @@ import 'package:buynsell/screens/auth/terms_conditions_screen.dart';
 import 'package:buynsell/screens/auth/forgot_password_screen.dart';
 import 'package:buynsell/screens/auth/reset_password_screen.dart';
 import 'package:buynsell/navigation_menu.dart';
+import 'package:buynsell/screens/products/search_screen.dart';
+import 'package:buynsell/screens/products/product_details_screen.dart';
+import 'package:buynsell/screens/notifications/notifications_screen.dart';
+import 'package:buynsell/screens/home/categories_screen.dart';
 
 /// Routes manager and route definitions for Buy N Sell app.
 class AppRoutes {
@@ -41,6 +45,7 @@ class AppRoutes {
   static const String termsConditions = '/termsConditions';
   static const String forgotPassword = '/forgotPassword';
   static const String resetPassword = '/resetPassword';
+  static const String notifications = '/notifications';
 
   /// Dynamically generates MaterialPageRoute for specified route [settings].
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -65,7 +70,7 @@ class AppRoutes {
 
       case categories:
         return MaterialPageRoute(
-          builder: (_) => _buildPlaceholderScreen('Categories'),
+          builder: (_) => const CategoriesScreen(),
           settings: settings,
         );
 
@@ -76,14 +81,15 @@ class AppRoutes {
         );
 
       case productDetails:
+        final productId = settings.arguments is String ? settings.arguments as String : 'p1';
         return MaterialPageRoute(
-          builder: (_) => _buildPlaceholderScreen('Product Details'),
+          builder: (_) => ProductDetailsScreen(productId: productId),
           settings: settings,
         );
 
       case search:
         return MaterialPageRoute(
-          builder: (_) => _buildPlaceholderScreen('Search'),
+          builder: (_) => const SearchScreen(),
           settings: settings,
         );
 
@@ -217,6 +223,12 @@ class AppRoutes {
         final email = settings.arguments is String ? settings.arguments as String : '';
         return MaterialPageRoute(
           builder: (_) => ResetPasswordScreen(email: email),
+          settings: settings,
+        );
+
+      case notifications:
+        return MaterialPageRoute(
+          builder: (_) => const NotificationsScreen(),
           settings: settings,
         );
 

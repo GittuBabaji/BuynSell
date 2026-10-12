@@ -27,8 +27,8 @@ class SocialSignInFooter extends StatelessWidget {
           children: [
             Expanded(
               child: Divider(
-                color: isDark ? Colors.white24 : AppColors.divider,
-                thickness: 1,
+                color: isDark ? AppColors.darkDivider : AppColors.divider,
+                thickness: TSizes.dividerHeight,
               ),
             ),
             Padding(
@@ -40,8 +40,8 @@ class SocialSignInFooter extends StatelessWidget {
             ),
             Expanded(
               child: Divider(
-                color: isDark ? Colors.white24 : AppColors.divider,
-                thickness: 1,
+                color: isDark ? AppColors.darkDivider : AppColors.divider,
+                thickness: TSizes.dividerHeight,
               ),
             ),
           ],
@@ -56,7 +56,7 @@ class SocialSignInFooter extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: TSizes.md),
               side: BorderSide(
-                color: isDark ? Colors.white24 : AppColors.border,
+                color: isDark ? AppColors.darkBorder : AppColors.border,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(TSizes.buttonRadius),

@@ -1,5 +1,7 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:buynsell/util/constants/sizes.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
+import 'package:buynsell/util/theme/app_colors.dart';
 
 /// Displays the "Create Account" title and subtitle at the top of the register screen.
 class RegisterHeader extends StatelessWidget {
@@ -16,12 +18,12 @@ class RegisterHeader extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: TSizes.sm),
         Text(
           Textconstants.registerSubTitle,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Colors.grey[600],
+                color: AppColors.textSecondary,
               ),
         ),
       ],

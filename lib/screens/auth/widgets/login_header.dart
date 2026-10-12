@@ -16,7 +16,7 @@ class LoginHeader extends StatelessWidget {
       children: [
         // --- Logo ---
         Image(
-          height: 150,
+          height: TSizes.logoHeight,
           image: AssetImage(isDark ? TIcons.lightLogo : TIcons.darkLogo),
         ),
 

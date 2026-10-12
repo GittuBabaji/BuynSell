@@ -62,6 +62,13 @@ class TSizes {
   static const double imageBannerHeight = 200.0;
 
   // ---------------------------------------------------------------------------
+  // Component sizes
+  // ---------------------------------------------------------------------------
+  static const double navigationBarHeight = 75.0;
+  static const double checkboxSize = 24.0;
+  static const double logoHeight = 150.0;
+
+  // ---------------------------------------------------------------------------
   // Default spacing
   // ---------------------------------------------------------------------------
   static const double defaultSpace = 24.0;

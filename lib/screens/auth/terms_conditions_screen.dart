@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/util/constants/sizes.dart';
+import 'package:buynsell/util/constants/text_strings_constants.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
   const TermsAndConditionsScreen({super.key});
@@ -8,7 +9,7 @@ class TermsAndConditionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Terms and Conditions'),
+        title: const Text(Textconstants.termsOfUse),
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -196,7 +197,7 @@ The updated Terms will include a revised Last Updated date.
 For questions, concerns, reports, or support:
 BuyNSell Support
 Email: support@buynsell.app''',
-          style: TextStyle(fontSize: 14.0, height: 1.5),
+          style: TextStyle(fontSize: TSizes.fontSizeMd, height: 1.5),
         ),
       ),
     );

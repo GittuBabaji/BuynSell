@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:buynsell/screens/products/product_details_screen.dart';
+import 'package:buynsell/util/constants/sizes.dart';
+import 'package:buynsell/util/theme/app_colors.dart';
 
 /// Screen allowing users to search products with search query history and results list.
 class SearchScreen extends StatefulWidget {
@@ -149,13 +153,24 @@ class _SearchScreenState extends State<SearchScreen> {
           leading: Container(
             width: 48,
             height: 48,
-            color: Colors.grey[200],
-            child: const Icon(Icons.image, color: Colors.grey),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(TSizes.borderRadiusSm),
+            ),
+            child: const Icon(Icons.shopping_bag_outlined, color: AppColors.primary),
           ),
-          title: Text('Result Item ${index + 1} matching "${_searchController.text}"'),
+          title: Text('Campus Item ${index + 1} for "${_searchController.text}"'),
           subtitle: const Text('₹599 • IIT BHU Campus'),
           onTap: () {
-            // TODO: Navigate to ProductDetailsScreen
+            Get.to(
+              () => ProductDetailsScreen(
+                productId: 'search_$index',
+                title: 'Result Item ${index + 1} matching "${_searchController.text}"',
+                price: '₹ ${(index + 1) * 450}',
+                hostel: 'Morvi Hostel • IIT BHU',
+                sellerName: 'Student Seller',
+              ),
+            );
           },
         );
       },

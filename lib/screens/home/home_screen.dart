@@ -1,191 +1,451 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:buynsell/screens/notifications/notifications_screen.dart';
+import 'package:buynsell/screens/products/search_screen.dart';
+import 'package:buynsell/screens/products/product_details_screen.dart';
+import 'package:buynsell/screens/home/categories_screen.dart';
+import 'package:buynsell/util/constants/sizes.dart';
+import 'package:buynsell/util/constants/text_strings_constants.dart';
+import 'package:buynsell/util/theme/app_colors.dart';
+import 'package:buynsell/util/device/device_utils.dart';
 
-/// Main Home Screen for the Buy N Sell IIT BHU app.
-class HomeScreen extends StatelessWidget {
+/// Main Home Dashboard for the Buy N Sell IIT BHU app.
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  // TODO: Replace sample static categories with backend/provider data loading logic
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String _selectedCategoryFilter = 'All';
+
   final List<Map<String, dynamic>> _featuredCategories = const [
-    {'name': 'Books', 'icon': Icons.menu_book},
-    {'name': 'Electronics', 'icon': Icons.devices},
-    {'name': 'Bicycles', 'icon': Icons.directions_bike},
-    {'name': 'Mattresses', 'icon': Icons.bed},
+    {'name': 'All', 'icon': Iconsax.grid_5},
+    {'name': 'Bicycles', 'icon': Icons.directions_bike_outlined},
+    {'name': 'Books', 'icon': Icons.menu_book_outlined},
+    {'name': 'Electronics', 'icon': Icons.devices_outlined},
+    {'name': 'Mattresses', 'icon': Icons.bed_outlined},
+    {'name': 'Sports', 'icon': Icons.sports_tennis_outlined},
   ];
 
-  // TODO: Replace sample static listings with backend/provider data loading logic
-  final List<Map<String, String>> _recentListings = const [
+  final List<Map<String, String>> _allListings = const [
     {
+      'id': 'p1',
       'title': 'Hero Cycle 21-Speed',
       'price': '₹ 3,500',
-      'hostel': 'Limbdi Hostel',
+      'originalPrice': '₹ 5,000',
+      'hostel': 'Limbdi Hostel • Room 112',
+      'sellerName': 'Aman Verma',
+      'category': 'Bicycles',
+      'condition': 'Used - Good',
+      'description':
+          'Hero Sprint Pro 21-speed cycle. Front suspension, dual disc brakes. Perfect for campus commuting from Limbdi to Department.',
     },
     {
-      'title': 'Engineering Physics Books',
+      'id': 'p2',
+      'title': 'Engineering Physics Books Set',
       'price': '₹ 800',
-      'hostel': 'Rajputana Hostel',
+      'originalPrice': '₹ 1,500',
+      'hostel': 'Rajputana Hostel • Room 45',
+      'sellerName': 'Priyanshu Singh',
+      'category': 'Books',
+      'condition': 'Like New',
+      'description':
+          'Complete 1st year engineering physics textbook and reference guides. Clean pages with minimal highlighting.',
     },
     {
-      'title': 'Single Bed Mattress',
+      'id': 'p3',
+      'title': 'Single Bed Foam Mattress',
       'price': '₹ 1,200',
-      'hostel': 'DG Hostel',
+      'originalPrice': '₹ 2,400',
+      'hostel': 'DG Hostel • Room 204',
+      'sellerName': 'Rahul Sharma',
+      'category': 'Mattresses',
+      'condition': 'Used - Good',
+      'description':
+          'High-density foam mattress, standard hostel cot size (6x3 ft). Used for 1 academic year, thoroughly cleaned.',
     },
     {
-      'title': 'Study Table Lamp',
-      'price': '₹ 400',
-      'hostel': 'Morvi Hostel',
+      'id': 'p4',
+      'title': 'Casio FX-991EX Calculator',
+      'price': '₹ 950',
+      'originalPrice': '₹ 1,400',
+      'hostel': 'Morvi Hostel • Room 30',
+      'sellerName': 'Siddharth Rao',
+      'category': 'Electronics',
+      'condition': 'Excellent',
+      'description':
+          'Genuine Casio ClassWiz scientific calculator. Perfect for semester exams, quizzes, and engineering labs.',
+    },
+    {
+      'id': 'p5',
+      'title': 'Study Table LED Lamp (Rechargeable)',
+      'price': '₹ 450',
+      'originalPrice': '₹ 899',
+      'hostel': 'Gargi Hostel • Room 118',
+      'sellerName': 'Ananya Patel',
+      'category': 'Electronics',
+      'condition': 'Like New',
+      'description':
+          '3-level dimmable warm/white LED desk lamp with 2000mAh battery. Great for late night studying without disturbing roommates.',
+    },
+    {
+      'id': 'p6',
+      'title': 'Yonex Nanoray Badminton Racket',
+      'price': '₹ 1,100',
+      'originalPrice': '₹ 1,800',
+      'hostel': 'Vishveshvarya Hostel • Room 82',
+      'sellerName': 'Kunal Mishra',
+      'category': 'Sports',
+      'condition': 'Good',
+      'description':
+          'Lightweight carbon graphite racket with full cover. Newly strung with BG-65 strings at Gymkhana.',
     },
   ];
 
   @override
   Widget build(BuildContext context) {
+    final isDark = DeviceUtils().isDarkMode(context);
+
+    final filteredListings = _selectedCategoryFilter == 'All'
+        ? _allListings
+        : _allListings
+            .where((item) => item['category'] == _selectedCategoryFilter)
+            .toList();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Buy N Sell IIT BHU'),
+        automaticallyImplyLeading: false,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              Textconstants.homebartitle,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: TSizes.fontSizeXl,
+              ),
+            ),
+            SizedBox(height: TSizes.xs),
+            Row(
+              children: [
+                Icon(Icons.location_on, size: TSizes.iconXs, color: AppColors.white),
+                SizedBox(width: TSizes.xs),
+                Text(
+                  Textconstants.campusLocation,
+                  style: TextStyle(
+                    fontSize: TSizes.fontSizeSm,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined),
-            onPressed: () {
-              // TODO: Implement notifications screen navigation
-            },
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              IconButton(
+                icon: const Icon(Iconsax.notification),
+                onPressed: () {
+                  Get.to(() => const NotificationsScreen());
+                },
+              ),
+              Positioned(
+                top: 12,
+                right: 12,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: const BoxDecoration(
+                    color: AppColors.error,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ],
           ),
+          const SizedBox(width: TSizes.xs),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Search Bar
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search products in IIT BHU...',
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  filled: true,
-                  fillColor: Theme.of(context).cardColor,
-                ),
-                onSubmitted: (query) {
-                  // TODO: Implement search filter functionality
+              // Search Bar Card (tappable -> navigates to SearchScreen)
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const SearchScreen());
                 },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: TSizes.md,
+                    vertical: TSizes.md,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isDark ? AppColors.darkSurface : AppColors.surface,
+                    borderRadius: BorderRadius.circular(TSizes.borderRadiusMd),
+                    border: Border.all(
+                      color: isDark ? AppColors.darkBorder : AppColors.border,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.black.withValues(alpha: isDark ? 0.2 : 0.05),
+                        blurRadius: 8,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Iconsax.search_normal, color: AppColors.textSecondary),
+                      const SizedBox(width: TSizes.md),
+                      const Expanded(
+                        child: Text(
+                          Textconstants.searchHint,
+                          style: TextStyle(
+                            color: AppColors.textSecondary,
+                            fontSize: TSizes.fontSizeMd,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(TSizes.xs),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(TSizes.borderRadiusSm),
+                        ),
+                        child: const Icon(
+                          Iconsax.filter,
+                          size: TSizes.iconSm,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              const SizedBox(height: 24.0),
+              const SizedBox(height: TSizes.spaceBtwSections),
 
               // Featured Categories Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Featured Categories',
+                    Textconstants.featuredCategories,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                   TextButton(
                     onPressed: () {
-                      // TODO: Navigate to CategoriesScreen
-                      Navigator.pushNamed(context, '/categories');
+                      Get.to(() => const CategoriesScreen());
                     },
-                    child: const Text('View All'),
+                    child: const Text(Textconstants.viewAll),
                   ),
                 ],
               ),
-              const SizedBox(height: 12.0),
+              const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Featured Categories Grid
-              // TODO: Wire up actual category data loading from API/Repository
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: _featuredCategories.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 0.85,
-                ),
-                itemBuilder: (context, index) {
-                  final category = _featuredCategories[index];
-                  return InkWell(
-                    onTap: () {
-                      // TODO: Filter listings by category
-                    },
-                    borderRadius: BorderRadius.circular(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 26,
-                          backgroundColor: Theme.of(context)
-                              .primaryColor
-                              .withValues(alpha: 0.1),
-                          child: Icon(
-                            category['icon'] as IconData,
-                            color: Theme.of(context).primaryColor,
+              // Category Horizontal Filter Pills
+              SizedBox(
+                height: 44,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _featuredCategories.length,
+                  separatorBuilder: (_, _) => const SizedBox(width: TSizes.sm),
+                  itemBuilder: (context, index) {
+                    final cat = _featuredCategories[index];
+                    final isSelected = cat['name'] == _selectedCategoryFilter;
+
+                    return ChoiceChip(
+                      selected: isSelected,
+                      label: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            cat['icon'] as IconData,
+                            size: TSizes.iconSm,
+                            color: isSelected
+                                ? AppColors.white
+                                : (isDark ? AppColors.unselectedDark : AppColors.unselectedLight),
                           ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          category['name'] as String,
-                          style: const TextStyle(fontSize: 12),
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                          const SizedBox(width: TSizes.xs),
+                          Text(cat['name'] as String),
+                        ],
+                      ),
+                      selectedColor: AppColors.primary,
+                      backgroundColor: isDark ? AppColors.darkSurface : AppColors.surface,
+                      labelStyle: TextStyle(
+                        color: isSelected
+                            ? AppColors.white
+                            : (isDark ? AppColors.white : AppColors.textPrimary),
+                        fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                        fontSize: TSizes.fontSizeSm,
+                      ),
+                      onSelected: (selected) {
+                        setState(() {
+                          _selectedCategoryFilter = cat['name'] as String;
+                        });
+                      },
+                    );
+                  },
+                ),
               ),
-              const SizedBox(height: 24.0),
+              const SizedBox(height: TSizes.spaceBtwSections),
 
               // Recent Listings Header
-              Text(
-                'Recent Listings',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    Textconstants.recentListings,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  Text(
+                    '${filteredListings.length} items',
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: TSizes.fontSizeSm,
                     ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 12.0),
+              const SizedBox(height: TSizes.spaceBtwItems),
 
-              // Recent Listings Cards
-              // TODO: Fetch recent product listings dynamically from database/API
-              ListView.builder(
+              // Product Listings (Tappable -> opens ProductDetailsScreen)
+              ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: _recentListings.length,
+                itemCount: filteredListings.length,
+                separatorBuilder: (_, _) => const SizedBox(height: TSizes.spaceBtwItems),
                 itemBuilder: (context, index) {
-                  final item = _recentListings[index];
+                  final item = filteredListings[index];
+
                   return Card(
-                    margin: const EdgeInsets.only(bottom: 12.0),
-                    child: ListTile(
-                      leading: Container(
-                        width: 56,
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(Icons.image, color: Colors.grey),
+                    elevation: TSizes.cardElevation,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(TSizes.cardRadiusMd),
+                      side: BorderSide(
+                        color: isDark ? AppColors.darkBorder : AppColors.border,
                       ),
-                      title: Text(
-                        item['title']!,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(item['hostel']!),
-                      trailing: Text(
-                        item['price']!,
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColorLight,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
+                    ),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(TSizes.cardRadiusMd),
                       onTap: () {
-                        // TODO: Navigate to Product Detail Screen
+                        // Open ProductDetailsScreen with product parameters
+                        Get.to(
+                          () => ProductDetailsScreen(
+                            productId: item['id']!,
+                            title: item['title'],
+                            price: item['price'],
+                            originalPrice: item['originalPrice'],
+                            hostel: item['hostel'],
+                            sellerName: item['sellerName'],
+                            category: item['category'],
+                            condition: item['condition'],
+                            description: item['description'],
+                          ),
+                        );
                       },
+                      child: Padding(
+                        padding: const EdgeInsets.all(TSizes.md),
+                        child: Row(
+                          children: [
+                            // Product Icon / Thumbnail box
+                            Container(
+                              width: 68,
+                              height: 68,
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withValues(alpha: 0.1),
+                                borderRadius: BorderRadius.circular(TSizes.borderRadiusSm),
+                              ),
+                              child: const Icon(
+                                Iconsax.box,
+                                size: TSizes.iconLg,
+                                color: AppColors.primary,
+                              ),
+                            ),
+                            const SizedBox(width: TSizes.md),
+
+                            // Details
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item['title']!,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: TSizes.fontSizeMd,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: TSizes.xs),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_outlined,
+                                        size: TSizes.iconXs,
+                                        color: AppColors.textSecondary,
+                                      ),
+                                      const SizedBox(width: TSizes.xs),
+                                      Expanded(
+                                        child: Text(
+                                          item['hostel']!,
+                                          style: const TextStyle(
+                                            color: AppColors.textSecondary,
+                                            fontSize: TSizes.fontSizeSm,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: TSizes.xs),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        item['price']!,
+                                        style: const TextStyle(
+                                          color: AppColors.success,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: TSizes.fontSizeLg,
+                                        ),
+                                      ),
+                                      const SizedBox(width: TSizes.sm),
+                                      Text(
+                                        item['originalPrice']!,
+                                        style: const TextStyle(
+                                          color: AppColors.textSecondary,
+                                          decoration: TextDecoration.lineThrough,
+                                          fontSize: TSizes.fontSizeSm,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Arrow forward
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: TSizes.iconXs,
+                              color: AppColors.textSecondary,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   );
                 },

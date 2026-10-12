@@ -187,8 +187,8 @@ class _RegisterFormState extends State<RegisterForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: 24,
-                height: 24,
+                width: TSizes.checkboxSize,
+                height: TSizes.checkboxSize,
                 child: Checkbox(
                   value: _agreeToTerms,
                   onChanged: (value) {

@@ -40,6 +40,15 @@ class AppColors {
   static const Color divider = Color(0xFFE0E0E0);
   static const Color shimmer = Color(0xFFE0E0E0);
   static const Color border = Color(0xFFCCCCCC);
+  static const Color darkDivider = Color(0x3DFFFFFF);
+  static const Color darkBorder = Color(0x3DFFFFFF);
+
+  // Common UI Colors
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color transparent = Colors.transparent;
+  static const Color unselectedLight = Color(0xFF757575);
+  static const Color unselectedDark = Color(0xFFBDBDBD);
 
   // TODO: Add category-specific badge colors (e.g. Books, Electronics, Bicycles)
 }

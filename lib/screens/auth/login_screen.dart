@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:buynsell/navigation_menu.dart';
 import 'package:buynsell/util/constants/sizes.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
+import 'package:buynsell/util/theme/app_colors.dart';
 import 'package:buynsell/screens/auth/widgets/login_header.dart';
 import 'package:buynsell/screens/auth/widgets/login_form.dart';
 import 'package:buynsell/screens/auth/widgets/social_sign_in_footer.dart';
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         actions: [
           TextButton(
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
             child: const Text(
               Textconstants.skip,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: TSizes.fontSizeLg,
                 fontWeight: FontWeight.w600,
               ),
             ),
