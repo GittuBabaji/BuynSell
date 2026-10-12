@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buynsell/screens/auth/forgot_password_screen.dart';
+import 'package:buynsell/navigation_menu.dart';
 import 'package:buynsell/util/constants/text_strings_constants.dart';
 import 'package:buynsell/util/constants/sizes.dart';
 import 'package:get/get.dart';
@@ -28,10 +29,7 @@ class _LoginFormState extends State<LoginForm> {
 
   void _handleLogin() {
     if (_formKey.currentState?.validate() ?? false) {
-      // TODO: Implement actual login logic using AuthService / Firebase Auth
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text(Textconstants.processingLogin)),
-      );
+      Get.offAll(() => const NavigationMenu());
     }
   }
 

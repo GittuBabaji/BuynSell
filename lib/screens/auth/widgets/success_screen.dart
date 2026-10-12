@@ -1,4 +1,4 @@
-import "package:buynsell/screens/auth/login_screen.dart";
+import "package:buynsell/navigation_menu.dart";
 import "package:buynsell/util/constants/asset_constants.dart";
 import "package:buynsell/util/constants/sizes.dart";
 import "package:buynsell/util/constants/text_strings_constants.dart";
@@ -44,7 +44,7 @@ class SuccessScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.offAll(() => const LoginScreen());
+                    Get.offAll(() => const NavigationMenu());
                   },
                   child: const Text(Textconstants.tContinue),
                 ),

@@ -91,4 +91,11 @@ class Textconstants{
   static const String profiletitle = "Profile";
   static const String settings = "Settings";
   static const String logout = "Logout";
+
+  // -- Bottom Navigation
+  static const String navHome = "Home";
+  static const String navWishlist = "Wishlist";
+  static const String navSell = "Sell";
+  static const String navChat = "Chat";
+  static const String navProfile = "Profile";
 }

@@ -5,6 +5,7 @@ import 'package:buynsell/screens/auth/privacy_policy_screen.dart';
 import 'package:buynsell/screens/auth/terms_conditions_screen.dart';
 import 'package:buynsell/screens/auth/forgot_password_screen.dart';
 import 'package:buynsell/screens/auth/reset_password_screen.dart';
+import 'package:buynsell/navigation_menu.dart';
 
 /// Routes manager and route definitions for Buy N Sell app.
 class AppRoutes {
@@ -58,7 +59,7 @@ class AppRoutes {
 
       case home:
         return MaterialPageRoute(
-          builder: (_) => _buildPlaceholderScreen('Home'),
+          builder: (_) => const NavigationMenu(),
           settings: settings,
         );
 

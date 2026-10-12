@@ -63,19 +63,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     prefixIcon: Icon(Iconsax.direct_right),
                   ),
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty) {
+                    final email = value?.trim() ?? "";
+                    if (email.isEmpty) {
                       return Textconstants.enterEmail;
                     }
-                    if (!value.contains('@')) {
-                      return Textconstants.validEmail;
-                    }
-                    if (!(value.endsWith("@itbhu.ac.in") || value.endsWith("@iitbhu.ac.in"))) {
+                    if (!RegExp(
+                      r'^[a-zA-Z0-9._%+-]+@(itbhu\.ac\.in|iitbhu\.ac\.in)$',
+                    ).hasMatch(email)) {
                       return Textconstants.validEmailex;
-                    }
-                    // Check for malicious payload (only allow standard safe email chars)
-                    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@(itbhu\.ac\.in|iitbhu\.ac\.in)$');
-                    if (!emailRegex.hasMatch(value.trim())) {
-                      return Textconstants.maliciousPayloadError;
                     }
                     return null;
                   },

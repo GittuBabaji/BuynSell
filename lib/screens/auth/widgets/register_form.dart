@@ -121,7 +121,8 @@ class _RegisterFormState extends State<RegisterForm> {
               if (value == null || value.trim().isEmpty) {
                 return Textconstants.enterPhone;
               }
-              if (value.trim().length < 10) {
+              final phoneClean = value.trim().replaceAll(RegExp(r'[\s-]'), '');
+              if (!RegExp(r'^[0-9]{10}$').hasMatch(phoneClean)) {
                 return Textconstants.validPhone;
               }
               return null;
