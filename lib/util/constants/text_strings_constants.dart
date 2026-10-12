@@ -37,6 +37,8 @@ class Textconstants{
 
   // -- Auth: Login
   static const String loginButton = "Login";
+  static const String skip = "Skip";
+  static const String skipToHome = "Skip to Home";
 
   // -- Auth: Register
   static const String registerTitle = "Register - Buy N Sell IIT BHU";

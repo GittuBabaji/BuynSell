@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:buynsell/util/theme/spacing_styles.dart';
+import 'package:get/get.dart';
+import 'package:buynsell/navigation_menu.dart';
 import 'package:buynsell/util/constants/sizes.dart';
+import 'package:buynsell/util/constants/text_strings_constants.dart';
 import 'package:buynsell/screens/auth/widgets/login_header.dart';
 import 'package:buynsell/screens/auth/widgets/login_form.dart';
 import 'package:buynsell/screens/auth/widgets/social_sign_in_footer.dart';
@@ -12,17 +14,43 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          TextButton(
+            onPressed: () => Get.offAll(() => const NavigationMenu()),
+            child: const Text(
+              Textconstants.skip,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: TspacingStyle.paddingwithAppbarheight,
+          padding: const EdgeInsets.only(
+            left: TSizes.defaultSpace,
+            right: TSizes.defaultSpace,
+            bottom: TSizes.defaultSpace,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              LoginHeader(),
-              SizedBox(height: TSizes.spaceBtwSections),
-              LoginForm(),
-              SizedBox(height: TSizes.spaceBtwSections),
-              SocialSignInFooter(),
+            children: [
+              const LoginHeader(),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              const LoginForm(),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              const SocialSignInFooter(),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              TextButton(
+                onPressed: () => Get.offAll(() => const NavigationMenu()),
+                child: const Text(Textconstants.skipToHome),
+              ),
             ],
           ),
         ),
